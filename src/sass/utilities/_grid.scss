@@ -1,0 +1,69 @@
+/******************************************************************
+
+** Sassian - Utilities - Grid **
+
+About: 
+
+	A really leightweight simple grid system. If you want to use
+	something more extensive feel free, this is designed to get
+	you started quickly
+
+
+Usage: 
+
+	In _variables.scss define your grid variables: 
+
+		$grid-columns : 12; // Number of columns
+		$grid-width : 1170px; // Total page width
+		$grid-gutter : 15px; // Left / Right gutter on each column
+
+	<div class="grid">
+		<div class="grid-10">
+			<!-- 8 columns -->
+		</div>
+		<div class="grid-3 offset-1">
+			<!-- 3 columns, offset by 1 column -->
+		</div>
+	</div>
+
+Example:
+
+	<a href="#" class="icon fa-comment-o">Leave a comment</a>
+
+	<a href="#" class="icon fa-thumbs-o-up">Thumbs up</a>
+
+******************************************************************/
+ 
+.grid {
+	margin: 0 auto;
+	width: 100%;
+
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	} 
+}
+
+%gridCol {
+	float: left;
+	padding: 0 $grid-gutter;
+}
+
+$gridColumnWidth : 100 / $grid-columns + 0%;
+
+@for $i from 1 to $grid-columns + 1 {
+  .grid-#{$i} {
+  	@extend %gridCol;
+  	width: $gridColumnWidth * $i;
+  }
+
+  .offset-#{$i} {
+  	margin-left: $gridColumnWidth * $i;
+  }
+  
+}
+
+.no-gutter {
+	padding: 0;
+}

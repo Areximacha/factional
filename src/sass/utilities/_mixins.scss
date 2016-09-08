@@ -1,0 +1,107 @@
+/******************************************************************
+
+Authors: Ian Brennan
+		Jay Tang
+
+Stylesheet: Mixins
+
+******************************************************************/
+
+/*********************
+ANIMATION
+*********************/
+
+/* USAGE: @include animation(bgcolor 60s infinite); */
+
+@mixin animation($animation...) {
+	$prefixes:      ("-webkit-", "-moz-", "-ms-", "-o-",  "");
+	@each $prefix in $prefixes {
+		#{$prefix}animation: $animation;
+	}
+}
+
+/*********************
+KEYFRAMES
+*********************/
+
+/* USAGE: @include keyframes(bgcolor) {
+	0% {
+	background-color: #ffccf2;
+	}
+	50% {
+	background-color: #ccffcc;
+	}
+	100% {
+	background-color: #ccffff;
+	}
+} */
+
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} {
+		@content;
+	}
+	@-moz-keyframes #{$name} {
+		@content;
+	}
+	@-ms-keyframes #{$name} {
+		@content;
+	}
+	@keyframes #{$name} {
+		@content;
+	}
+}
+
+/*********************
+Background size: cover;
+*********************/
+
+/* 	Use a background image to cover the element in most browsers including IE8
+
+	USAGE: @include background-cover(imgPath); */
+
+@mixin background-cover($imgPath) {
+	background-image: image-url($imgPath);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="#{image-url($imgPath, true)}", sizingMethod="scale");
+}
+
+/*********************
+CSS3 GRADIENTS
+*********************/
+
+/* USAGE: @include css-gradient(#dfdfdf,#f8f8f8); */
+
+@mixin css-gradient($from, $to) {
+	background-color: $to;
+	background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+	background-image: -webkit-linear-gradient(top, $from, $to);
+	background-image: -moz-linear-gradient(top, $from, $to);
+	background-image: -o-linear-gradient(top, $from, $to);
+	background-image: linear-gradient(to bottom, $from, $to);
+}
+
+/*********************
+BACKGROUND COLOUR WITH TRANSPARENCY
+*********************/
+
+/* USAGE: @include transparentBackground(rgba(0, 0, 0, 0.5)); */
+
+@mixin transparentBackground($color: rgba(0, 0, 0, 0.5)) {
+	background-color: $color;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#{ie-hex-str($color)}",endColorstr="#{ie-hex-str($color)}",GradientType=1);
+}
+
+/*********************
+BOX-SIZING
+*********************/
+
+/* USAGE: @include box-sizing(border-box); */
+
+@mixin box-sizing($type) {
+	$prefixes:      ("-webkit-", "-moz-", "-ms-", "-o-",  "");
+	@each $prefix in $prefixes {
+		#{$prefix}box-sizing: $type;
+	}
+}

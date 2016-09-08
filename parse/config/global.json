@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "Folksy": {
+            "applicationId": "9QrMvUdOmb3smTEhEd7BUTZzPHeBz5Wagh9eVnh6", 
+            "masterKey": "vFeiW3fyNgON6UimrITXhRogZ6QoHBHPoqbDbsLD"
+        }, 
+        "_default": {
+            "link": "Folksy"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.3.3"
+    }
+}

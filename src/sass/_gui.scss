@@ -1,0 +1,167 @@
+/*********************
+
+Authors:
+	Jay Tang
+
+Stylesheet:
+	GUI stylesheet
+
+*********************/
+
+.link-btn {
+	display: block;
+	text-transform: uppercase;
+	padding: 20px;
+	border: solid 2px $colour-background;
+}
+
+form {
+	padding: 0 40px 20px;
+
+	input {
+		-webkit-appearance: none;
+		@include border-radius(0);
+		width: 100%;
+		margin-bottom: 20px;
+		font-family: $fontFutura;
+		color: $colour-copy-invert;
+
+		&[type="text"] {
+			text-transform: uppercase;
+		}
+
+		&[type="text"],
+		&[type="password"] {
+			@include border-radius(0);
+			border: none;
+			border-bottom: solid 2px $colour-background;
+			background-color: transparent;
+			padding: 10px 0;
+			font-size: 16px;
+			font-weight: 600;
+		}
+
+		&[type="submit"] {
+			background-color: $colour-background-invert;
+			border: solid 2px $colour-brand;
+			color: $colour-brand;
+			padding: 10px;
+			text-transform: uppercase;
+			font-size: 18px;
+			font-weight: 600;
+			margin-top: 50px;
+		}
+
+	}
+
+	select {
+        position: relative;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 100%;
+        margin-bottom: 20px;
+        border: none;
+        border-bottom: solid 2px $colour-background;
+        border-radius: 0;
+        padding: 10px 0;
+        font-family: $fontFutura;
+		font-size: 16px;
+		font-weight: 600;
+		text-transform: uppercase;
+        color: $colour-copy-invert;
+        background-color: $colour-background-invert;
+        outline: 0;
+        cursor: pointer;
+        z-index: 1;
+        background-repeat: no-repeat;
+        background-position: right top;
+        background-size: 34px 34px;
+    }
+
+	::-webkit-input-placeholder {
+	   color: $colour-copy-fade-invert;
+	   text-transform: uppercase;
+	}
+
+	:-moz-placeholder {
+	   color: $colour-copy-fade-invert;
+	   text-transform: uppercase;
+	}
+
+	::-moz-placeholder {
+	   color: $colour-copy-fade-invert;
+	   text-transform: uppercase;
+	}
+
+	:-ms-input-placeholder {  
+	   color: $colour-copy-fade-invert;
+	   text-transform: uppercase;
+	}
+
+	&.invert {
+
+		input {
+
+			&[type="text"],
+			&[type="password"] {
+				border-bottom: solid 2px $colour-primary;
+				color: $colour-copy;
+				background-color: transparent;
+			}
+
+			&[type="submit"] {
+				background-color: $colour-background;
+			}
+		}
+
+		select {
+			border-bottom: solid 2px $colour-primary;
+			background-color: transparent;
+			color: $colour-copy;
+		}
+	}
+}
+
+button {
+	-webkit-appearance: none;
+	background-color: transparent;
+	border: solid 2px $colour-brand;
+	color: $colour-brand;
+	padding: 10px;
+	text-transform: uppercase;
+	font-family: $fontFutura;
+	font-size: 18px;
+	font-weight: 600;
+	width: 100%;
+
+	&.dark {
+		border: solid 2px $colour-background-invert;
+		color: $colour-background-invert;
+	}
+}
+
+// autocomplete styles for jquery UI widget
+.ui-menu .ui-menu-item {
+	background-color: $colour-background;
+	height: 40px;
+	border-bottom: 1px solid $colour-fade;
+	padding: 10px;
+	text-transform: uppercase;
+}
+
+.ui-menu {
+	max-height: 400px;
+	overflow-y: scroll;
+	border: 1px solid $colour-fade;
+	z-index: 4;
+	width: calc(100% - 40px) !important;
+	left: 20px !important;
+}
+
+.btn-module {
+	position: absolute;
+	width: 100%;
+	bottom: 50px;
+	text-align: center;
+}

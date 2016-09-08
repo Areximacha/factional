@@ -1,0 +1,179 @@
+/*********************
+
+Authors:
+	Giovanna Ruiu, Jay Tang
+
+Stylesheet:
+	Header module stylesheet
+
+*********************/
+
+nav {
+	position: fixed;
+	z-index: 7;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: $colour-background;
+
+	.header {
+		position: relative;
+		width: 100%;
+		@include display-flex;
+		@include flex-direction(row);
+		opacity: 1;
+		height: 80px;
+		padding-right: 80px;
+		overflow: hidden;
+		@include transition(all 0.3s linear);
+
+		&.hide {
+			opacity: 0;
+			height: 0;
+		}
+
+		.menu, .logo {
+			height: 100%;
+			@include display-flex;
+			@include flex-direction(column);
+	  		@include justify-content(center);
+			@include align-items(center);
+		}
+
+		.menu {
+			width: 80px;
+		}
+
+		.logo {
+			@include flex(1 0 0);
+		}
+	}
+
+	.search-form {
+		position: absolute;
+		@include display-flex;
+		top: 0;
+		left: 0;
+		height: 80px;
+		width: 100%;
+		background-color: $colour-background;
+		@include translate(calc(100% - 80px), 0);
+		@include transition(all 0.4s ease-in-out);
+
+		&.active {
+			@include translate(0, 0);
+			border-bottom: 1px solid $colour-fade;
+		}
+
+		.cta-search {
+			width: 80px;
+			height: 80px;
+			line-height: 80px;
+			text-align: center;
+			@include flex(none);
+		}
+
+		form {
+			position: relative;
+			padding: 0 70px 0 0;
+			@include flex(1 0 0);
+			height: 100%;
+
+			input {
+				margin: 0;
+				height: 100%;
+				color: $colour-copy;
+				border: none;
+				padding: 20px 0;
+				font-weight: 100;
+				width: 175px;
+			}
+
+			.clear-search {
+				position: absolute;
+				right: 70px;
+				top: 0;
+				height: 80px;
+				line-height: 80px;
+				padding: 0 20px;
+				color: $colour-fade;
+				opacity: 0;
+				@include transition(opacity 0.2s ease-in-out);
+
+				&.show {
+					opacity: 1;
+				}
+			}
+
+			.close-search {
+				position: absolute;
+				right: 0;
+				top: 0;
+				line-height: 80px;
+				padding-right: 20px;
+			}
+		}
+	}
+
+	.mobile-nav {
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #202022;
+		@include translate(-100%, 0);
+		@include transition(all 0.4s ease-in-out);
+		padding: 100px 30px;
+
+		&.active {
+			@include translate(0, 0);
+		}
+		
+		li {
+			margin-bottom: 40px;
+
+			a {
+				color: white;
+				font-family: $fontTimes;
+				font-size: 40px;
+				font-style: italic;
+			}
+		}
+
+		.close {
+			color: white;
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 80px;
+			width: 80px;
+			text-align: center;
+			line-height: 80px;
+		}
+		
+	}
+
+	.offices {
+		@include display-flex;
+		@include flex-direction(row);
+		width: 100%;
+		
+		li {
+			@include display-flex;
+			background-color: #dcdada;
+			@include flex(1);
+			@include flex-direction(column);
+			@include justify-content(center);
+			@include align-items(center);
+			height: 40px;
+			&.selected { background-color: #cbc8c8; }
+		}
+	}
+}
+
+
+
+
+
+

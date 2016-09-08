@@ -1,0 +1,125 @@
+/******************************************************************
+
+Author: Ian Brennan
+
+Stylesheet: Responsive breakpoints mixin
+
+How to use:
+
+In your variables file, define a list:
+
+	$breakpoints: (
+	    (phone 		320px)
+	    (tablet 	680px)
+	    (desktop 	1170px)
+	    (extended 	1440px)
+	)
+
+******** Hint ********
+You can add as many or as a few breakpoints as your like, it is best to name
+them in a way that is understood across all departments (UX, Design) as it
+makes communications easier during bug fixing / change requests.
+**********************
+
+To wrap your Sass in a media query, call it as like so:
+
+	@include breakpoint(breakpointName) {
+		// Sass here
+	}
+
+Replace breakpointName with a matching name in your list
+(in this example: phone / tablet / desktop / extended)
+
+
+**** Legacy Browsers ****
+
+For older browsers that don't support media queries this mixin supports
+turning off the media query, and just returning the CSS.
+
+In your legacy scss file set this variable:
+
+	$IE: false;
+
+And then import your entire main scss file below:
+
+	// Turn off media queries for IE stylesheet
+	$IE: false;
+
+	@import "main";
+
+
+******************************************************************/
+
+$IE: false !default;
+
+@function getBreakpointWidth($name) {
+
+    @each $breakpoint in $breakpoints {
+        $breakpoint-name:  nth($breakpoint, 1);
+        $breakpoint-width: nth($breakpoint, 2);
+
+        @if $name == $breakpoint-name {
+            @return $breakpoint-width;
+        }
+    }
+
+    @return 'Breakpoint #{$name} not found'
+
+}
+
+@mixin breakpoint($min: false, $max: false, $and: false){
+
+	// Initialize variables
+	$minWidth : 0;
+	$maxWidth : 0;
+    $mediaQuery : '';
+
+    @if $min {
+
+		$minWidth : getBreakpointWidth($min);
+
+	}
+
+	@if $max {
+
+		$maxWidth : getBreakpointWidth($max);
+
+	}
+
+	@if $minWidth != 0 { 
+
+		$mediaQuery: '#{$mediaQuery} and (min-width: #{$minWidth})';
+
+	}
+
+	@if $maxWidth != 0 {
+
+		$mediaQuery: '#{$mediaQuery} and (max-width: #{$maxWidth})';
+
+	}
+
+	@if $and { 
+
+		$mediaQuery: '#{$mediaQuery} and #{$and}'; 
+
+	}
+
+	@if $IE == false {
+
+		@media all #{$mediaQuery} {
+
+			@content;
+
+		}
+
+	}
+
+	@if $IE == true and $minWidth != 0 {
+
+		@content;
+
+	}
+
+	
+
+}

@@ -1,0 +1,82 @@
+/*********************
+
+Authors:
+	Jay Tang
+
+Stylesheet:
+	Main stylesheet
+
+*********************/
+
+/******************************************************************
+Utilities
+******************************************************************/
+
+// compass
+@import "compass";
+
+// variables
+@import "variables";
+
+// retina sprites
+@import "utilities/retina-sprites";
+
+// retina sprites
+@import "utilities/jquery-ui";
+
+// mixins
+@import "utilities/mixins";
+
+// reset
+@import "utilities/reset";
+
+// grid
+@import "utilities/grid";
+
+// breakpoints
+@import "utilities/breakpoints";
+
+// fonts
+@import "utilities/fonts";
+
+// base style
+@import "base";
+
+// gui style
+@import "gui";
+
+/******************************************************************
+Modules
+******************************************************************/
+
+// header
+@import "modules/header";
+
+// footer
+@import "modules/footer";
+
+// Navigation Menu
+@import "modules/menu";
+
+/******************************************************************
+Views 
+******************************************************************/
+
+// Welcome page
+@import "views/welcome";
+
+// Login page
+@import "views/login";
+
+// Register page
+@import "views/register";
+
+// Itroduction page
+@import "views/introduction";
+
+// Home page
+@import "views/home";
+
+// Profile page
+@import "views/profile";
+

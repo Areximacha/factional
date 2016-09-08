@@ -1,0 +1,356 @@
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.3.1.min.js"></script>
+<script type="text/javascript">
+	Parse.initialize("9QrMvUdOmb3smTEhEd7BUTZzPHeBz5Wagh9eVnh6", "Kj4MUQS455Gzs4C05Y3IQ6ryOueOCJ4XP9uGbOfC");
+</script>
+
+<h1>Open console, click links below to trigger Parse functions</h1>
+
+
+<section>
+
+	<h2>User sign up, validation, and logging in</h2>
+
+	<ol>
+		<li>
+			<a href="#" onclick="newUser('invalid');">New User (tries to create a user with invalid data)</a>
+		</li>
+		<li>
+			<a href="#" onclick="newUser('valid');">New User (creates a valid new user)</a>
+		</li>
+		<li>
+			<a href="#" onclick="checkUser();">Check current user</a>
+		</li>
+		<li>
+			<a href="#" onclick="login();">Log in user</a>
+		</li>
+		<li>
+			<a href="#" onclick="lotsOfUsers();">Create loads of users (150)</a>
+		</li>
+	</ol>
+
+	<script>
+
+	function lotsOfUsers(){
+
+		var names = ["Ludie Lago","Charlesetta Gerdes","Herma Clemons","Dante Bova","Hazel Buckwalter","Matilde Lummus","Ismael Schlabach","Yon Rosenbloom","Austin Perugini","Columbus Lipsky","Fletcher Degreenia","Francesco Chenard","Apryl Dumais","Birgit Ewald","Reyna Seevers","Reiko Mayfield","Nevada Flinchbaugh","Lorenzo Kahler","Adriane Betances","Carolyn Waldeck","Germaine Sipes","Gilberto Dawes","Shaunta Sonnier","Teddy Bilby","Easter Pattillo","Omar Leasure","Sherly Wimbush","Malissa Arden","Gala Zeno","Lyndon Urbina","Trinity Kleis","Daisey Tetrault","Kourtney Prost","Athena Michaelson","Erinn Sharrow","Bari Ruelas","Roxy Bennefield","Nell Silvey","Adah Sims","Rosario Lundblad","Arianna Couture","Eugene Swedberg","Myrtice Mccullough","Ashlea Buttrey","Catrina Kurtz","Deidra Mcfarlane","Jackelyn Hershey","Marinda Montilla","Adrienne Moneypenny","Leena Durio","Ludie Lagoa","Charlesetta Gerdesa","Herma Clemonsa","Dante Bovaa","Hazel Buckwaltera","Matilde Lummusa","Ismael Schlabacha","Yon Rosenblooma","Austin Peruginia","Columbus Lipskya","Fletcher Degreeniaa","Francesco Chenarda","Apryl Dumaisa","Birgit Ewalda","Reyna Seeversa","Reiko Mayfielda","Nevada Flinchbaugha","Lorenzo Kahlera","Adriane Betancesa","Carolyn Waldecka","Germaine Sipesa","Gilberto Dawesa","Shaunta Sonniera","Teddy Bilbya","Easter Pattilloa","Omar Leasurea","Sherly Wimbusha","Malissa Ardena","Gala Zenoa","Lyndon Urbinaa","Trinity Kleisa","Daisey Tetraulta","Kourtney Prosta","Athena Michaelsona","Erinn Sharrowa","Bari Ruelasa","Roxy Bennefielda","Nell Silveya","Adah Simsa","Rosario Lundblada","Arianna Couturea","Eugene Swedberga","Myrtice Mccullougha","Ashlea Buttreya","Catrina Kurtza","Deidra Mcfarlanea","Jackelyn Hersheya","Marinda Montillaa","Adrienne Moneypennya","Leena Durioa","Ludie Lagob","Charlesetta Gerdesb","Herma Clemonsb","Dante Bovab","Hazel Buckwalterb","Matilde Lummusb","Ismael Schlabachb","Yon Rosenbloomb","Austin Peruginib","Columbus Lipskyb","Fletcher Degreeniab","Francesco Chenardb","Apryl Dumaisb","Birgit Ewaldb","Reyna Seeversb","Reiko Mayfieldb","Nevada Flinchbaughb","Lorenzo Kahlerb","Adriane Betancesb","Carolyn Waldeckb","Germaine Sipesb","Gilberto Dawesb","Shaunta Sonnierb","Teddy Bilbyb","Easter Pattillob","Omar Leasureb","Sherly Wimbushb","Malissa Ardenb","Gala Zenob","Lyndon Urbinab","Trinity Kleisb","Daisey Tetraultb","Kourtney Prostb","Athena Michaelsonb","Erinn Sharrowb","Bari Ruelasb","Roxy Bennefieldb","Nell Silveyb","Adah Simsb","Rosario Lundbladb","Arianna Coutureb","Eugene Swedbergb","Myrtice Mcculloughb","Ashlea Buttreyb","Catrina Kurtzb","Deidra Mcfarlaneb","Jackelyn Hersheyb","Marinda Montillab","Adrienne Moneypennyb","Leena Duriob"];
+
+		for (var i = 0; i < names.length; i++) {
+
+			names[i] = names[i];
+
+			var firstName = names[i].split(" ")[0].toLowerCase(),
+				lastName = names[i].split(" ")[0].toLowerCase();
+
+			Parse.User.logOut();
+
+			var user = new Parse.User();
+
+			user.set("username", Date.now() + firstName + "." + lastName + "@analogfolk.com");
+
+			user.set("password", "password");
+
+			user.set("email", Date.now() + firstName + "." + lastName + "@analogfolk.com");
+
+			user.set("name", names[i]);
+
+			user.set("jobTitle", "Test User");
+
+			var departments = [
+				"Oj7Z7maNQP",
+				"8fSAe1DQ8R",
+				"G96fDeQOQX",
+				"59trHVyqbK",
+				"JBsWDKKJRV",
+				"4BTv9rO2Ri",
+				"0I8p31HnaF",
+				"lRUQ5lLLQh",
+				"ZI1s6dNBFF",
+				"6dQffIEMMl",
+				"dV9dSFxLmd",
+				"TsbD3f2PEi",
+				"PJdw6rt5eW"
+			];
+
+			user.set("department", {
+				__type: "Pointer",
+				className: "JobDepartments",
+				objectId: departments[Math.floor(Math.random() * departments.length)]
+			});
+
+			var photos = [
+				"jCtukLal7C",
+				"pf4Sx26h9y",
+				"lNpXHGz7Qa",
+				"HYYz9Lchmu",
+				"cueyBG0TtH",
+				"DCCqHqXBxR",
+				"mzCxosSoo0",
+				"irCqLMnTAL",
+				"sQpX49ZEC8",
+				"BdliDWSonb",
+				"8KCg6Vdpda",
+				"H61t5fek68",
+				"CsoCoTxBa9",
+				"N2GyS8ESXj",
+				"L5A2ZdUf6r",
+				"TyijoMkGC4",
+				"nnFcHS6Rda",
+				"lSUSdW6mSM",
+				"d0EKRrbFT2",
+				"XOmfLarcY7"
+			];
+
+			user.set("photo", {
+				__type: "Pointer",
+				className: "Photos",
+				objectId: photos[Math.floor(Math.random() * photos.length)]
+			});
+
+			user.set("office", {
+				__type: "Pointer",
+				className: "Offices",
+				objectId: "xJM5E6qFVu"
+			});
+
+			// Lets see what we're trying to save
+			console.log(user.attributes);
+
+			user.signUp(null, {
+				success: function(user) {
+
+					console.log("User saved:", user);
+
+				},
+				error: function(user, error) {
+
+					console.log(error);
+
+				}
+			});
+
+		};
+
+	}
+
+	function getRegistrationForm(){
+		// Used to get the data for the registration form dropdowns, and auto complete job titles, departments etc.
+
+
+	};
+
+	function newUser(type){
+
+		// Clear the current user (for this code example only, not needed in real user sign up)
+		Parse.User.logOut();
+
+		var user = new Parse.User();
+
+		if(type === 'valid'){
+
+			// The Date.now() timestamp is just to ensure we create a new user each time, 
+			// and should be removed from the production version.
+			// For this app, username should be the same as the email address
+			user.set("username", Date.now() + "ian.brennan@analogfolk.com");
+
+			// A note about passwords, they're stored as a hash and aren't accesible in cloud code.
+			// So validation of this field should take place on the frontend, prior to the new user
+			// code being executed.
+			user.set("password", "password");
+
+			user.set("email", Date.now() + "ian.brennan@analogfolk.com");
+
+			user.set("name", "Ian Brennan");
+
+			// The office is a pointer to the Offices class, as such you need a matching
+			// objectId to reference it. See the getRegistrationForm function.
+			user.set("office", {
+				__type: "Pointer",
+				className: "Offices",
+				objectId: "yOuzV9YRJ7"
+			});
+
+		} else if (type === 'invalid'){
+
+			user.set("username", "abcdefgh");
+
+			// A note about passwords, they're stored as a hash and aren't accesible in cloud code.
+			// So validation of this field should take place on the frontend, prior to the new user
+			// code being executed.
+			user.set("password", "abcdefgh");
+
+			user.set("email", "ian@analogfolk.com");
+
+			user.set("name", "");
+
+		}
+
+		// Lets see what we're trying to save
+		console.log(user.attributes);
+
+		user.signUp(null, {
+			success: function(user) {
+
+				console.log("User saved:", user);
+
+			},
+			error: function(user, error) {
+
+				console.log(error);
+
+			}
+		});
+	}
+
+	function checkUser(){
+
+		console.log("User: " + Parse.User.current().get("username"), Parse.User.current());
+
+	}
+
+	function login(){
+
+		Parse.User.logIn("ian.brennan@analogfolk.com", "password", {
+			success: function(user) {
+
+				console.log("Logged in", user);
+
+			},
+			error: function(user, error) {
+
+				console.log(error);
+
+			}
+		});
+
+	}
+	</script>
+
+</section>
+
+<section>
+
+	<h2>File upload</h2>
+
+	<ol>
+		<li>
+			<form id="fileupload" name="fileupload" enctype="multipart/form-data" method="post">
+				<fieldset>
+					<input type="file" name="fileselect"></input>
+					<input id="uploadbutton" type="button" value="Upload"/>
+				</fieldset>
+			</form>
+		</li>
+	</ol>
+
+	<script>
+		$('#uploadbutton').click(function() {
+
+			if(!Parse.User.current()){
+
+				alert("Need a valid user first!");
+
+				return false;
+
+			}
+
+			var file = $("input[name='fileselect']")[0].files || $("input[name='fileselect']")[0].dataTransfer.files;
+
+			file = file[0];
+
+			var serverUrl = 'https://api.parse.com/1/files/' + file.name;
+
+			$.ajax({
+				type: "POST",
+				beforeSend: function(request) {
+					request.setRequestHeader("X-Parse-Application-Id", '9QrMvUdOmb3smTEhEd7BUTZzPHeBz5Wagh9eVnh6');
+					request.setRequestHeader("X-Parse-REST-API-Key", 'MEjvAQ4JfdYZAfefc3PW6B6byUZ6wxwQEJ8jH0UT');
+					request.setRequestHeader("Content-Type", file.type);
+				},
+				url: serverUrl,
+				data: file,
+				processData: false,
+				contentType: false,
+				success: function(data) {
+
+					console.log("File uploaded:", data);
+
+					var Photos = Parse.Object.extend("Photos");
+					var photo = new Photos();
+
+					photo.set("originalFile", data.url);
+
+					photo.save(null, {
+						success: function(photo) {
+
+							console.log(photo.id);
+
+							Parse.User.current().set("photo",
+								{
+									__type: "Pointer",
+									className: "Photos",
+									objectId: photo.id
+								}
+							);
+
+							Parse.User.current().save().then(function (user) {
+
+								console.log("Photo object created, and user record updated", photo);
+
+							}, function (error) {
+
+					        	console.error(error);
+
+					    	});
+
+						},
+						error: function(photo, error) {
+
+							console.log(error);
+
+						}
+					});
+
+				},
+				error: function(error) {
+					console.log(error);
+				}
+			});
+
+		});
+	</script>
+
+</section>
+
+<section>
+
+	<h2>Notifications</h2>
+
+	<ol>
+		<li>
+			<a href="#" onclick="cloudCodeNewUser();">New User (notify everyone in the same office)</a>
+		</li>
+	</ol>
+
+	<script>
+		function cloudCodeNewUser(){
+
+			Parse.Cloud.run('cloudCodeNewUser', {
+				
+			}, {
+				success: function(results) {
+
+					console.log(results);
+
+				},
+				error: function(error) {
+
+					console.log(error);
+
+				}
+			});
+
+		};
+	</script>
+
+</section>

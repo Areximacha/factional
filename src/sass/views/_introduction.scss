@@ -1,0 +1,131 @@
+/*********************
+
+Authors:
+	Jay Tang
+
+Stylesheet:
+	Introduction View stylesheet
+
+*********************/
+
+.introduction {
+
+	.heading-module {
+		margin: 0;
+	}
+
+	.simform {
+		margin-bottom: 40px;
+
+		.simform-inner {
+			position: relative;
+			height: 225px;
+		}
+
+		fieldset {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			opacity: 0;
+			@include transition(opacity 0.4s ease-in-out);
+
+			label {
+				text-transform: uppercase;
+			}
+
+			.link-btn {
+				border: solid 2px $colour-brand;
+				color: $colour-brand;
+				text-align: center;
+				padding: 10px;
+				margin-bottom: 10px;
+			}
+
+			.cta-back {
+				font-size: 14px;
+			}
+
+			&.active {
+				opacity: 1;
+				z-index: 9;
+			}
+		}
+
+		.input-wrapper {
+			position: relative;
+			width: 100%;
+			height: 100px;
+			padding: 10px;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			border: 2px solid $colour-primary;
+
+			i {
+				position: absolute;
+				top: 0;
+				right: 0;
+				height: 100%;
+				line-height: 100px;
+				padding: 0 10px;
+				cursor: pointer;
+				color: $colour-copy-invert;
+				background-color: $colour-primary;
+			}
+		}
+
+		.text-count {
+			position: absolute;
+			right: 2px;
+			bottom: 2px;
+			font-size: 11px;
+			line-height: 11px;
+			color: #aaa;
+		}
+
+		textarea {
+			resize: none;
+			border: none;
+			width: 100%;
+			height: 100%;
+		}
+
+		.status-module {
+			overflow: auto;
+			min-height: 25px;
+		}
+
+		.progress-bar {
+			background-color: #ccc;
+			height: 2px;
+			margin-bottom: 5px;
+
+			span {
+				display: block;
+				background-color: $colour-primary;
+				width: 0;
+				height: 100%;
+				@include transition(width 0.2s ease-in-out);
+			}
+		}
+
+		.progress-num {
+			float: right;
+		}
+
+		.error-msg {
+			font-size: 11px;
+			color: $colour-brand;
+			display: none;
+		}
+	}
+
+	.feedback {
+		text-align: center;
+		opacity: 0;
+		@include transition(opacity 0.2s ease-in-out);
+
+		&.show {
+			opacity: 1;
+		}
+	}
+}

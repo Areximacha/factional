@@ -1,0 +1,51 @@
+/*********************
+
+Authors:
+	Jay Tang
+
+Stylesheet:
+	Variables stylesheet
+
+*********************/
+
+// colours
+
+$colour-brand: #E6324B;
+
+$colour-border: #ABACAB;
+$colour-border-invert: #3C3C3C;
+
+$colour-primary: #333;
+$colour-background: #fff;
+$colour-background-off: #f2f2f2;
+$colour-background-invert: #000;
+
+$colour-copy: #333;
+$colour-copy-invert: #fff;
+$colour-copy-fade-invert: #6f6f6f;
+$colour-fade: #d3d3d3;
+
+// fonts
+
+$fontArial: "Arial", "Helvetica", sans-serif;
+$fontTimes: "Times", "Times New Roman", serif;
+$fontFutura: Futura, "FuturaStd-Book", "Roboto", "Trebuchet MS", Arial, sans-serif;
+
+// sprites
+
+// create the sprite icon folders and put this back in
+// $sprites: sprite-map("icons/*.png");
+// $sprites2x: sprite-map("icons-2x/*.png");
+
+// layout
+
+$grid-columns : 12;
+$grid-width : 1170px;
+$grid-gutter : 10px;
+
+// breakpoints
+
+$breakpoints: (
+    (mobile 	768px)
+    (tablet		1170px)
+)

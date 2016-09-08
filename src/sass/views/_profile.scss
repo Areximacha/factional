@@ -1,0 +1,63 @@
+/*********************
+
+Authors:
+	Giovanna Ruiu, Jay Tang
+
+Stylesheet:
+	Profile view stylesheet
+
+*********************/
+
+.profile {
+
+	.contact, .department {
+		@include display-flex;
+		@include flex-direction(row);
+		@include justify-content(space-around);
+		@include align-items(center);
+	}
+
+	.contact {
+		height: 80px;
+
+		p {
+			text-transform: uppercase;
+		}
+	}
+
+	.department {
+		height: 50px;
+		background-color: #dcdada;
+		margin-top: -2px;
+		text-transform: uppercase;
+		@include justify-content(space-around);
+		@include align-items(center);
+
+		p {
+			max-width: 66%;
+		}
+	}
+
+	img { 
+		width: 100%; 
+	}
+
+	.questions {
+		padding: 40px 30px;
+	}
+
+	.question {
+		font-size: 18px;
+		text-transform: uppercase;
+		line-height: 20px;
+	}
+
+	.answer {
+		font-family: $fontTimes;
+		font-size: 20px;
+		font-style: italic;
+		color: $colour-copy-fade-invert;
+		margin-bottom: 20px;
+		line-height: 22px;
+	}
+}

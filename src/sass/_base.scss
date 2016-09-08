@@ -1,0 +1,174 @@
+/*********************
+
+Authors:
+	Jay Tang
+
+Stylesheet:
+	Base stylesheet
+
+*********************/
+
+html {
+
+	@include breakpoint(false, mobile) {
+		width: 100%;
+	}
+}
+
+body {
+	position: relative;
+	font-family: $fontFutura;
+	color: $colour-copy;
+	font-size: 100%;
+	line-height: 100%;
+
+	&.blocked {
+		overflow: hidden;
+	}
+}
+
+* {
+	-webkit-tap-highlight-color: transparent;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div {
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+	-webkit-text-rendering: optimizeLegibility;
+	-moz-text-rendering: optimizeLegibility;
+	-ms-text-rendering: optimizeLegibility;
+	-o-text-rendering: optimizeLegibility;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	-ms-font-smoothing: antialiased;
+	-o-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-smoothing: antialiased;
+}
+
+h1 {
+	font-size: 40px;
+	line-height: 1.3em;
+}
+
+h2 {
+	font-size: 24px;
+}
+
+h3 {
+	font-size: 20px;
+}
+
+p {
+	font-size: 14px;
+	padding: 7px 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+ol {
+	list-style-type: decimal;
+
+	li {
+		margin-left: 15px;
+		margin-bottom: 10px;
+	}
+}
+
+b {
+	font-weight: bold;
+}
+
+.hide {
+    display: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.heading-module {
+	position: relative;
+	margin: 20px 0;
+	padding: 30px 0;
+	text-align: center;
+	color: $colour-copy-invert;
+
+	h2 {
+		font-family: $fontTimes;
+		font-style: italic;
+	}
+
+	h1 {
+		text-transform: uppercase;
+	}
+
+	&:after {
+		position: absolute;
+		content: "";
+		display: block;
+		height: 2px;
+		width: 80px;
+		background-color: $colour-brand;
+		left: 50%;
+		margin-left: -40px;
+		bottom: 0;
+	}
+
+	&.invert {
+		color: $colour-copy;
+
+		&:after {
+			display: none;
+		}
+	}
+}
+
+.overlay-view {
+	position: fixed;
+	z-index: 9;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	background-color: $colour-background;
+	@include translate(100%, 0);
+	@include transition(all 0.2s ease-in-out);
+
+	&.active {
+		@include translate(0, 0);
+	}
+}
+
+.loading {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+
+	img {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-left: -32px;
+	}
+}
